@@ -53,6 +53,11 @@ const TYPES = {
     resolved_license: 'License',
     published_at: 'Timestamp',
     latest_version: 'string',
+    latest_version_published_at: 'Timestamp',
+    package_artifact_md5: 'string',
+    package_artifact_sha1: 'string',
+    package_artifact_sha256: 'string',
+    package_artifact_sha512: 'string',
   },
   License: {
     uuid: 'string',
@@ -174,6 +179,7 @@ const TIMESTAMP_METHODS = [
 
 const TYPE_METHODS = {
   Component: [
+    nullaryFunc('has_package_artifact_hash_mismatch', 'bool'),
     unaryFunc('is_dependency_of', 'v1.Component{}', 'bool'),
     unaryFunc('is_direct_dependency_of', 'v1.Component{}', 'bool'),
     unaryFunc('is_exclusive_dependency_of', 'v1.Component{}', 'bool'),
